@@ -16,7 +16,7 @@ result
 *.lock
 .devenv/
 .devenv.lock
-devenv.flake.nix
+.devenv.flake.nix
 devenv.nix
 
 *.swp
