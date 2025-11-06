@@ -1,0 +1,31 @@
+# Python-generated files
+__pycache__/
+*.py[oc]
+build/
+dist/
+wheels/
+*.egg-info
+
+# Virtual environments
+.venv
+.env/
+
+# Nix environment and builds
+result
+*.drv
+*.lock
+.devenv/
+.devenv.lock
+devenv.flake.nix
+devenv.nix
+
+*.swp
+*.bak
+*.tmp
+
+pre-commit
+Makefile
+.config
+.envrc
+.envrc.private
+.python-version
