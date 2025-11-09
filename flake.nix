@@ -67,6 +67,9 @@
             shellHook = ''
               unset PYTHONPATH
               uv sync
+              if [ ! -d .venv ]; then
+                uv venv
+              fi
               . .venv/bin/activate
             '';
           };

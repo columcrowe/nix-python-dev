@@ -1,0 +1,23 @@
+version = 1
+revision = 3
+requires-python = ">=3.13"
+
+[[package]]
+name = "microdot"
+version = "2.4.0"
+source = { registry = "https://pypi.org/simple" }
+sdist = { url = "https://files.pythonhosted.org/packages/0d/3d/de563b45f25aca504f9342c678031e117b20260232497355d7a77a8742f7/microdot-2.4.0.tar.gz", hash = "sha256:202efa3c365887c7967ab01c3b66848c98785ec1917cb970fcaa56a55ba79817", size = 77800, upload-time = "2025-11-08T12:30:37.509Z" }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/96/cb/067b8d75c6f3ca90abd7fcff34b3061b8f14979a4dd619a47d2570d9ba3a/microdot-2.4.0-py3-none-any.whl", hash = "sha256:5074c14f8be08ee455b33eb8c005599424fc743d5fd9b7511ab60124e39fc695", size = 41715, upload-time = "2025-11-08T12:30:35.612Z" },
+]
+
+[[package]]
+name = "nix-python-dev"
+version = "0.1.0"
+source = { virtual = "." }
+dependencies = [
+    { name = "microdot" },
+]
+
+[package.metadata]
+requires-dist = [{ name = "microdot", specifier = ">=2.4.0" }]
