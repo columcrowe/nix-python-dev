@@ -43,7 +43,20 @@
         system:
         let
           pkgs = nixpkgs.legacyPackages.${system};
-          python = pkgs.python3;
+          python = pkgs.python313;
+          boostPython = pkgs.boost.override {
+            enablePython = true;
+            enableNumpy = true;
+            inherit python;
+          };
+          pyprojectOverrides = final: prev: {
+            utility-belt = prev.utility-belt.overrideAttrs (old: {
+              buildInputs = (old.buildInputs or []) ++ [
+                boostPython
+                pkgs.fftw
+              ];
+            });
+          };
         in
         (pkgs.callPackage pyproject-nix.build.packages {
           inherit python;
@@ -52,6 +65,7 @@
             lib.composeManyExtensions [
               pyproject-build-systems.overlays.wheel
               overlay
+              pyprojectOverrides
             ]
           )
       );
@@ -64,12 +78,13 @@
           pkgs = nixpkgs.legacyPackages.${system};
           #pythonSet = pythonSets.${system}.overrideScope editableOverlay;
           #virtualenv = pythonSet.mkVirtualEnv "dev-env" workspace.deps.all;
+          python = pkgs.python313;
         in
         {
           #impure
           default = pkgs.mkShell {
             packages = [
-              pkgs.python3
+              python
               pkgs.uv
               pkgs.stdenv.cc.cc
             ];

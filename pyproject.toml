@@ -6,4 +6,8 @@ readme = "README.md"
 requires-python = ">=3.13"
 dependencies = [
     "microdot>=2.5.1",
+    "utility-belt",
 ]
+
+[tool.uv.sources]
+utility-belt = { path = "wheels/utility_belt-0.1.0-py3-none-any.whl" }

@@ -3,7 +3,8 @@ __pycache__/
 *.py[oc]
 build/
 dist/
-wheels/
+wheels/*
+!wheels/utility_belt-0.1.0-py3-none-any.whl
 *.egg-info
 
 # Virtual environments
